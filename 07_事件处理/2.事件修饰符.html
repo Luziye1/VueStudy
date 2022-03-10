@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件修饰符</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <h2>欢迎来到{{name}}学习</h2>
+    <a href="http://www.baidu.com" @click="showInfo">点我提示信息</a>
+
+    <div class="demo1" @click="hehehe">
+        <button @click.stop="showInfo">点我提示信息</button>
+    </div>
+
+    <button @click.once="showInfo">点我提示信息</button>
+</div>
+
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip = false
+    new Vue({
+        el: '#root',
+        data: {
+            name: "尚硅谷"
+        },
+        methods:{
+            showInfo(event){
+                event.preventDefault()
+                alert("同学你好!!")
+            },
+            hehehe(event){
+                alert("嘿嘿嘿")
+            }
+        }
+    })
+</script>
+</html>
